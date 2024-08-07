@@ -3,6 +3,11 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          pwd
-          npm run build
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+      - run: npm install
+      - run: npm run build --if-present
+      - run: npm test
