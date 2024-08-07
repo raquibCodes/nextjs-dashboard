@@ -1,14 +1,7 @@
-name: Check Build
-
-on:
-  pull_request:
-    types: [opened, edited]
-  push:
-    # only trigger on branches, not on tags
-    branches: "**"
-
+on: push
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      run: npm run build
+      - run: node --version
+      - run: npm --version
